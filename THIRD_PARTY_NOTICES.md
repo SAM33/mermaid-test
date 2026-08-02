@@ -5,3 +5,7 @@ licensed under the MIT License. Its complete license text is copied into the
 published container image as `/usr/share/nginx/html/licenses-mermaid.txt`.
 
 Mermaid is a separate project and its trademarks are not claimed by this project.
+
+This project also bundles [jsPDF](https://github.com/parallax/jsPDF), licensed
+under the MIT License. Its complete license text is copied into the published
+container image as `/usr/share/nginx/html/licenses-jspdf.txt`.
