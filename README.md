@@ -24,6 +24,14 @@ docker run --rm -p 8080:8080 markdown-mermaid-preview
 
 推送到 `main` 或 `v*` tag 時，GitHub Actions 會建置並發布映像檔至 GitHub Container Registry（GHCR）。實際名稱為 `ghcr.io/<你的 GitHub 帳號或組織>/markdown-mermaid-preview`。
 
+## GitHub 上的 Demo 網站
+
+推送到 `main` 後，`Deploy demo site to GitHub Pages` workflow 會自動發布靜態網站。第一次使用時，到 GitHub repository 的 **Settings → Pages**，將 Source 設為 **GitHub Actions**。完成後，workflow 的 deploy job 會顯示 Demo 網址，通常是：
+
+`https://<你的 GitHub 帳號或組織>.github.io/<repository 名稱>/`
+
+GitHub Pages 不會執行 Docker；它只託管這個專案建置後的前端檔案，因此正符合本工具在瀏覽器端渲染 Mermaid 的設計。
+
 ## 授權
 
 本專案採 [MIT License](LICENSE)。Mermaid 本身也採 MIT License；其授權通知見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，並隨 Docker 映像檔提供。
