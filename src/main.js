@@ -16,6 +16,9 @@ mermaid.initialize({
   startOnLoad: false,
   theme: 'default',
   securityLevel: 'strict',
+  // HTML labels create SVG foreignObject nodes, which browsers cannot safely
+  // export to a canvas. Native SVG text keeps PNG/PDF downloads portable.
+  htmlLabels: false,
   fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif'
 });
 
