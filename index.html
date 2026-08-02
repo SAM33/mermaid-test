@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="在瀏覽器中預覽 Mermaid 圖表並下載 PNG。" />
+    <title>Mermaid Markdown 預覽器</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">本機瀏覽器渲染 · 不會上傳內容</p>
+        <h1>Mermaid Markdown 預覽器</h1>
+        <p>貼上含有一個 <code>mermaid</code> 程式碼區塊的 Markdown，即時產生圖表。</p>
+      </header>
+
+      <section class="workspace" aria-label="編輯與預覽區">
+        <div class="panel editor-panel">
+          <div class="panel-title"><h2>Markdown</h2></div>
+          <label class="sr-only" for="source">Mermaid Markdown 原始碼</label>
+          <textarea id="source" spellcheck="false">```mermaid
+flowchart LR
+  A[貼上 Markdown] --> B{預覽圖表}
+  B --> C[下載 PNG]
+```</textarea>
+          <p class="hint">可直接貼 Mermaid 語法，或以 <code>```mermaid</code> 包起來。</p>
+        </div>
+
+        <div class="panel preview-panel">
+          <div class="panel-title">
+            <h2>預覽</h2>
+            <button id="download" type="button" disabled>下載 PNG</button>
+          </div>
+          <div id="status" class="status" role="status">正在產生圖表…</div>
+          <div id="preview" class="preview" aria-live="polite"></div>
+        </div>
+      </section>
+      <footer>此工具採 MIT License；內含 Mermaid，依其 MIT License 使用。</footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

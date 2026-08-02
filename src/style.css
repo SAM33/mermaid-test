@@ -1,0 +1,24 @@
+:root { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #172033; background: #f3f6fb; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.app-shell { width: min(1400px, calc(100% - 2rem)); margin: 0 auto; padding: 2.5rem 0; }
+header { margin-bottom: 1.5rem; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: .5rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h2 { font-size: 1rem; margin: 0; }
+.eyebrow { color: #4057a5; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.panel { min-width: 0; min-height: 580px; overflow: hidden; border: 1px solid #dce3f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 20px rgb(31 48 83 / 7%); }
+.panel-title { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 1rem; border-bottom: 1px solid #e7ecf5; }
+textarea { display: block; width: 100%; height: 470px; resize: vertical; border: 0; outline: 0; padding: 1rem; color: #182133; font: .92rem/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.hint { padding: 0 1rem; color: #657089; font-size: .85rem; }
+button { border: 0; border-radius: 7px; padding: .55rem .9rem; color: white; background: #2f62ce; font: inherit; font-weight: 650; cursor: pointer; }
+button:hover:not(:disabled) { background: #244fa9; }
+button:disabled { cursor: not-allowed; background: #aab6cf; }
+.status { padding: .75rem 1rem; color: #526075; font-size: .9rem; }
+.status.success { color: #23763b; }.status.error { color: #b42318; }
+.preview { display: grid; min-height: 460px; place-items: center; overflow: auto; padding: 1.5rem; background: #fbfcff; }
+.preview svg { max-width: 100%; height: auto; }
+footer { padding: 1.5rem 0 .5rem; color: #657089; font-size: .8rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 800px) { .app-shell { width: min(100% - 1rem, 1400px); padding-top: 1rem; }.workspace { grid-template-columns: 1fr; }.panel { min-height: auto; } textarea { height: 340px; } }
