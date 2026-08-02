@@ -65,3 +65,6 @@ resvg-wasm). See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and the
 locations of their license texts in the built site and Docker image. Their
 trademarks remain the property of their respective owners.
+
+Noto Sans TC is bundled only for PNG/PDF export and is licensed under the SIL
+Open Font License 1.1. Its license notice is also included in the built site.

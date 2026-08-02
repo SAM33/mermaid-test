@@ -2,6 +2,7 @@ import mermaid from 'mermaid';
 import { jsPDF } from 'jspdf';
 import { initWasm, Resvg } from '@resvg/resvg-wasm';
 import resvgWasmUrl from '@resvg/resvg-wasm/index_bg.wasm?url';
+import notoSansTcUrl from '../assets/NotoSansTC-Variable.ttf?url';
 import './style.css';
 
 const source = document.querySelector('#source');
@@ -15,6 +16,7 @@ const renderButton = document.querySelector('#render');
 let renderedSvg = '';
 let renderTimer;
 let wasmInitialization;
+let exportFontBuffers;
 
 mermaid.initialize({
   startOnLoad: false,
@@ -67,11 +69,17 @@ async function render() {
 async function renderPng() {
   if (!renderedSvg) throw new Error('尚未產生圖表');
   wasmInitialization ??= initWasm(fetch(resvgWasmUrl));
-  await wasmInitialization;
+  exportFontBuffers ??= fetch(notoSansTcUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error('中文字型載入失敗');
+      return response.arrayBuffer();
+    })
+    .then((buffer) => [new Uint8Array(buffer)]);
+  const [, fontBuffers] = await Promise.all([wasmInitialization, exportFontBuffers]);
   const renderer = new Resvg(renderedSvg, {
     background: '#ffffff',
     fitTo: { mode: 'zoom', value: 2 },
-    font: { loadSystemFonts: false, defaultFontFamily: 'Arial' }
+    font: { fontBuffers, defaultFontFamily: 'Noto Sans TC' }
   });
   const image = renderer.render();
   const result = { bytes: image.asPng(), width: image.width, height: image.height };
