@@ -26,7 +26,7 @@ docker run --rm -p 8080:8080 markdown-mermaid-preview
 
 ## GitHub 上的 Demo 網站
 
-推送到 `main` 後，`Deploy demo site to GitHub Pages` workflow 會自動發布靜態網站。第一次使用時，到 GitHub repository 的 **Settings → Pages**，將 Source 設為 **GitHub Actions**。完成後，workflow 的 deploy job 會顯示 Demo 網址，通常是：
+推送到 `main` 後，`Deploy demo site to GitHub Pages` workflow 會自動發布靜態網站。第一次使用時，到 GitHub repository 的 **Settings → Pages**，將 Source 設為 **GitHub Actions**；若未啟用，deploy job 會以 `404 / Creating Pages deployment failed` 失敗。完成後，重新執行 workflow 或再推送一次，deploy job 會顯示 Demo 網址，通常是：
 
 `https://<你的 GitHub 帳號或組織>.github.io/<repository 名稱>/`
 
