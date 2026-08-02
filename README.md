@@ -12,7 +12,9 @@ rendering and image/PDF export happen on the user's device.
 
 - Paste Mermaid Markdown and get an instant diagram preview.
 - One-tap clipboard paste, designed for mobile browsers.
-- Download the rendered diagram as PNG or PDF.
+- Download the rendered diagram as PNG, PDF, or SVG. PNG conversion uses a
+  browser-side WebAssembly renderer rather than Canvas, avoiding browser canvas
+  security restrictions.
 - Responsive interface with no ads, accounts, or desktop application required.
 - Deploy as a static GitHub Pages demo or a Docker container.
 
@@ -57,8 +59,9 @@ modification, distribution, and commercial use when the license notice is kept.
 If you need to prohibit commercial use, this project would need a different,
 source-available license rather than an open-source MIT license.
 
-Mermaid and jsPDF are third-party libraries used by this project. They retain
-their own licenses (both MIT at the versions bundled here). See
+Mermaid, jsPDF, and resvg-wasm are third-party libraries used by this project.
+They retain their own licenses (MIT for Mermaid and jsPDF; MPL-2.0 for
+resvg-wasm). See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and the
 locations of their license texts in the built site and Docker image. Their
 trademarks remain the property of their respective owners.
